@@ -3,8 +3,6 @@ languageCode: en-us
 title: Blog of Denis Borovikov
 theme: "PaperMod"
 
-googleAnalytics: G-VT3MG3VFSK
-
 params:
   env: production
 
