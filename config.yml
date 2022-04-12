@@ -2,3 +2,20 @@ baseURL: https://borovikovd.github.io
 languageCode: en-us
 title: Blog - Denis Borovikov
 theme: "PaperMod"
+
+googleAnalytics: G-VT3MG3VFSK
+
+params:
+  env: production
+
+  homeInfoParams:
+    Title: Hi there 👋
+    Content: Welocome to Denis' Borovikov blog about engineering and product management.
+
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/denis-bv/"
+    - name: twitter
+      url: "https://twitter.com/borovikov_en"
+    - name: github
+      url: "https://github.com/borovikovd"
