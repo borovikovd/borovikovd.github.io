@@ -1,5 +1,5 @@
 baseURL: https://borovikovd.github.io
-anguageCode: en-us
+languageCode: en-us
 title: Blog of Denis Borovikov
 theme: "PaperMod"
 
@@ -12,7 +12,7 @@ params:
 
   socialIcons:
     - name: linkedin
-      url: "https://www.linkedin.com/in/denis_bvk/"
+      url: "https://www.linkedin.com/in/denis-bv/"
     - name: twitter
       url: "https://twitter.com/borovikov_en"
     - name: github
