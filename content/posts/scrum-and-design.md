@@ -2,7 +2,7 @@
 layout: post
 title: "How to fit UI/UX into Scrum"
 date:   2022-04-12 19:45:31 +0530
-summary: “ - But we need designs!” © Frontend Developers
+categories: ["scrum", "ui/ux"]
 ---
 
 # Why is it hard?
