@@ -1,6 +1,7 @@
 ---
+layout: post
 title: "How to fit UI/UX into Scrum"
-date: 2022-04-12T19:22:23+01:00
+date:   2022-04-12 19:45:31 +0530
 summary: “ - But we need designs!” © Frontend Developers
 ---
 

@@ -1,6 +1,7 @@
 ---
+layout: post
 title: "Code reviews best practices"
-date: 2024-03-17T19:22:23+01:00
+date:   2024-03-19 19:45:31 +0530
 summary: "A survival guide"
 ---
 
