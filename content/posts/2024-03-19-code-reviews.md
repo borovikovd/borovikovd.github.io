@@ -1,7 +1,6 @@
 ---
-layout: post
 title: "Code reviews best practices"
-date:   "March 19, 2024"
+date: 2024-03-19T00:00:00Z
 summary: A survival guide
 categories: ["programming"]
 ---
