@@ -8,7 +8,7 @@ params:
 
   profileMode:
     enabled: true
-    title: "Denis Borovikov"
+    title: "Hi there 👋"
     subtitle: "Staff engineer building developer tools, platform infrastructure, and AI automation systems."
     # imageUrl: "profile.jpg"  # optional: add profile picture
     # imageWidth: 120
