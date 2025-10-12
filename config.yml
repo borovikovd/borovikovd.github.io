@@ -1,6 +1,6 @@
 baseURL: https://borovikovd.github.io
 languageCode: en-us
-title: Blog of Denis Borovikov
+title: Denis Borovikov
 theme: "PaperMod"
 
 params:
@@ -8,7 +8,7 @@ params:
 
   homeInfoParams:
     Title: Hi there 👋
-    Content: I am Denis Borovikov, engineer, manager and startup CTO. Welcome to my blog.
+    Content: Staff engineer building developer tools, platform infrastructure, and AI automation systems.
 
   socialIcons:
     - name: linkedin
