@@ -9,7 +9,7 @@ params:
   profileMode:
     enabled: true
     title: "Hi there 👋"
-    subtitle: "Staff engineer building developer tools, platform infrastructure, and AI automation systems."
+    subtitle: "Staff Engineer building developer tools, platform infrastructure, and AI automation systems."
     # imageUrl: "profile.jpg"  # optional: add profile picture
     # imageWidth: 120
     # imageHeight: 120
