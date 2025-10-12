@@ -1,6 +1,6 @@
 ---
 title: "How to fit UI/UX into Scrum"
-date: "April 12, 2022"
+date: 2022-04-12
 summary: "But we need designs! - Frontend Developers"
 categories: ["scrum", "ui/ux"]
 ---

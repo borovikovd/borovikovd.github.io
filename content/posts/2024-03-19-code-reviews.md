@@ -1,6 +1,6 @@
 ---
 title: "Code reviews best practices"
-date: "March 19, 2024"
+date: 2024-03-19
 summary: A survival guide
 categories: ["programming"]
 ---
