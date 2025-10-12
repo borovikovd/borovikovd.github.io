@@ -6,9 +6,18 @@ theme: "PaperMod"
 params:
   env: production
 
-  homeInfoParams:
-    Title: Hi there 👋
-    Content: Staff engineer building developer tools, platform infrastructure, and AI automation systems.
+  profileMode:
+    enabled: true
+    title: "Denis Borovikov"
+    subtitle: "Staff engineer building developer tools, platform infrastructure, and AI automation systems."
+    # imageUrl: "profile.jpg"  # optional: add profile picture
+    # imageWidth: 120
+    # imageHeight: 120
+    buttons:
+      - name: Posts
+        url: posts
+      - name: GitHub
+        url: https://github.com/borovikovd
 
   socialIcons:
     - name: linkedin
