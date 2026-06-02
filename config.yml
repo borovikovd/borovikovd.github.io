@@ -3,10 +3,6 @@ locale: en-us
 title: Denis Borovikov
 theme: "PaperMod"
 
-author:
-  name: "Denis Borovikov"
-  email: "your-email@example.com"
-
 outputs:
   home:
     - HTML
@@ -16,6 +12,11 @@ outputs:
 
 params:
   env: production
+
+  # PaperMod reads it from here now
+  author:
+    name: "Denis Borovikov"
+    email: "your-email@example.com"
 
   profileMode:
     enabled: true
