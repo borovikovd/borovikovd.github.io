@@ -1,7 +1,11 @@
 baseURL: https://borovikovd.github.io
-languageCode: en-us
+locale: en-us
 title: Denis Borovikov
 theme: "PaperMod"
+
+author:
+  name: "Denis Borovikov"
+  email: "your-email@example.com"
 
 outputs:
   home:
@@ -12,10 +16,6 @@ outputs:
 
 params:
   env: production
-
-  author:
-    name: "Denis Borovikov"
-    email: "your-email@example.com" # You can use a dummy email if you don't want it public
 
   profileMode:
     enabled: true
