@@ -1,5 +1,5 @@
 ---
-title: "The Test Suite Is the Part You Can't Vibe"
+title: "The test suite is the part you can't vibe"
 date: 2026-06-02T00:00:00Z
 summary: You can delegate the labor of verification, but never the ownership of the risk
 categories: ["programming"]
