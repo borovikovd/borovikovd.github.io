@@ -1,0 +1,22 @@
+---
+title: "The Test Suite Is the Part You Can't Vibe"
+date: 2026-06-02T00:00:00Z
+summary: You can delegate the labor of verification, but never the ownership of the risk
+categories: ["programming", "ai"]
+---
+
+The popular complaint about vibe coding is that LLMs write bad code. It is mostly false — frontier models write code that is often cleaner than what a tired human produces on a Friday afternoon — and even where it’s true, it misses the actual problem. The danger isn’t the quality of any given line; it’s what vibe coding tempts you to skip: verification. When people vibe, tests are an afterthought, something the model sprinkles in at the end if you ask nicely. That’s backwards. The test suite isn’t the chore wrapped around the code — it’s the part that decides whether the code is worth anything, and it’s the one part you cannot afford to vibe.
+
+Here is the catch that makes this interesting rather than obvious. Even a good test suite is incomplete: it can only check the behavior someone thought to specify, so it shrinks the chance of a defect but never drives it to zero. A residual risk always remains. That single fact splits “ensuring quality” into two things people lazily treat as one — the *labor* of verification, and the *ownership* of the risk that verification can’t eliminate. They have different homes, and confusing them is where vibe coding goes wrong.
+
+The labor you can delegate, and should. Writing tests, generating edge cases, running analysis — hand it to an agent. But not the agent that wrote the code. A model grading its own output is self-certification, the oldest mistake in quality assurance; you would never let an engineer be the sole reviewer of their own pull request, and the same logic applies to a model. So use a *separate* testing agent, with its own context and a brief to attack code it didn’t write. Producer and verifier are different processes for the same reason they’re different people on a serious team.
+
+Delegating the labor, though, does not shrink the residual risk — it just gets the work done, and it hands you a new problem: how do you, the accountable human, know the generated suite is any good? Two models can share the same blind spots and cheerfully agree on the same wrong assumptions, leaving you with a fat suite that asserts nothing — tautological tests written to match the code instead of the intent. You cannot sign off on what you cannot assess, and you cannot assess a thousand machine-written tests by reading them straight through.
+
+This is what the verification techniques are actually for: not to replace your judgment, but to make it possible. Mutation testing is the sharpest of them — it injects deliberate bugs into your code and reports whether the tests catch them, telling you mechanically, independent of any model’s opinion, whether the suite has teeth. A high mutation score is the difference between a real test suite and a wall of green checkmarks. Readable tests do the same work from the other side: when each test is written so a human can see what behavior it pins down, you can map the suite back to intent instead of trusting it on faith. Coverage harnesses show you which cases are exercised and which are dark. None of these decide anything — they hand you a suite you can actually evaluate.
+
+Because in the end someone has to evaluate it. A human reads the mutation score, scans what the tests truly assert, looks at the corners no case reaches, and accepts the remaining risk under their own name. *That* is the part that can never be delegated, to any agent, ever — because the residual risk has to land on something that can bear consequences, and a model has none. A test suite can’t sign for itself. A model can’t be fired. The human can. So the human stays accountable by default and throughout, no matter how much of the work the agents do.
+
+None of this is new. A lazy human skipping tests produces the identical failure. Vibe coding is just an accelerant of an old sin — it makes plausible, unverified code nearly free, which is exactly why the verification discipline has to get *stronger* as the code gets cheaper, not weaker.
+
+So vibe the code if you like. Generate it, regenerate it, throw it away. But treat the test suite as the real deliverable: a separate agent to verify, mutation testing to keep it honest, and one accountable human reading the score. The model can write the code. You still have to decide it’s true.
