@@ -2,7 +2,7 @@
 title: "The Test Suite Is the Part You Can't Vibe"
 date: 2026-06-02T00:00:00Z
 summary: You can delegate the labor of verification, but never the ownership of the risk
-categories: ["programming", "ai"]
+categories: ["programming"]
 ---
 
 The popular complaint about vibe coding is that LLMs write bad code. It is mostly false — frontier models write code that is often cleaner than what a tired human produces on a Friday afternoon — and even where it’s true, it misses the actual problem. The danger isn’t the quality of any given line; it’s what vibe coding tempts you to skip: verification. When people vibe, tests are an afterthought, something the model sprinkles in at the end if you ask nicely. That’s backwards. The test suite isn’t the chore wrapped around the code — it’s the part that decides whether the code is worth anything, and it’s the one part you cannot afford to vibe.
