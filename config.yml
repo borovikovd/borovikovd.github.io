@@ -3,6 +3,13 @@ languageCode: en-us
 title: Denis Borovikov
 theme: "PaperMod"
 
+outputs:
+  home:
+    - HTML
+    - RSS
+  page:
+    - HTML
+
 params:
   env: production
 
