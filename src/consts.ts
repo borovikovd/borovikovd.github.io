@@ -8,5 +8,5 @@ export const SITE = {
 export const LINKS = [
   { label: 'GitHub', handle: 'borovikovd', href: 'https://github.com/borovikovd' },
   { label: 'LinkedIn', handle: 'denis-bv', href: 'https://www.linkedin.com/in/denis-bv/' },
-  { label: 'X / Twitter', handle: '@denis_bvk', href: 'https://twitter.com/denis_bvk' },
+  { label: 'X / Twitter', handle: '@denbvk', href: 'https://x.com/denbvk' },
 ];
