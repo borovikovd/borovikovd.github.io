@@ -1,0 +1,23 @@
+---
+import { checkerboardPath } from '../lib/poincare';
+
+const d = checkerboardPath(7, 3, { minSize: 0.015 });
+---
+
+<svg
+  class="disk"
+  viewBox="-102 -102 204 204"
+  role="img"
+  aria-label="Poincaré disk: infinitely many congruent triangles tiling a bounded circle"
+>
+  <circle r="100" class="paper"></circle>
+  <path d={d} class="ink"></path>
+  <circle r="100" class="rim"></circle>
+</svg>
+
+<style>
+  .disk { display: block; width: 100%; height: auto; }
+  .paper { fill: var(--bg); }
+  .ink { fill: var(--ink); }
+  .rim { fill: none; stroke: var(--ink); stroke-width: 2.5; }
+</style>

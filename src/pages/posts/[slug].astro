@@ -1,0 +1,91 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Glyph from '../../components/Glyph.astro';
+import { formatDate, getPosts, readingTime, type Post } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: { post, n: posts.length - i, newer: posts[i - 1], older: posts[i + 1] },
+  }));
+}
+
+interface Props {
+  post: Post;
+  n: number;
+  newer?: Post;
+  older?: Post;
+}
+
+const { post, n, newer, older } = Astro.props;
+const { title, summary, date } = post.data;
+const { Content } = await render(post);
+---
+
+<Base title={title} description={summary} article={{ published: date }}>
+  <article>
+    <header>
+      <p class="mono meta">
+        <Glyph n={n} />
+        <span>Lemma {n}</span>
+        <span aria-hidden="true">·</span>
+        <time datetime={date.toISOString()}>{formatDate(date)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{readingTime(post.body)} min read</span>
+      </p>
+      <h1 class="display">{title}</h1>
+      {summary && <p class="dek">{summary}</p>}
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+    <p class="end" aria-hidden="true"><span class="qed"></span></p>
+  </article>
+
+  {
+    (newer || older) && (
+      <nav class="pager" aria-label="More writing">
+        {older ? (
+          <a href={`/posts/${older.id}/`}>
+            <span class="mono">← Lemma {n - 1}</span>
+            <span class="t display">{older.data.title}</span>
+          </a>
+        ) : <span />}
+        {newer && (
+          <a href={`/posts/${newer.id}/`} class="newer">
+            <span class="mono">Lemma {n + 1} →</span>
+            <span class="t display">{newer.data.title}</span>
+          </a>
+        )}
+      </nav>
+    )
+  }
+</Base>
+
+<style>
+  article { max-width: var(--measure); margin-inline: auto; }
+  header { padding-block: clamp(1.5rem, 5vw, 3rem) 2rem; margin-bottom: 2rem; border-bottom: 1px solid var(--rule); }
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 0; color: var(--muted); }
+  .meta :global(.glyph) { width: 0.85rem; height: 0.85rem; }
+  h1 { margin: 1rem 0 0; font-size: clamp(3rem, 8vw, 4.75rem); text-wrap: balance; }
+  .dek { margin: 0.9rem 0 0; font-size: 1.35rem; line-height: 1.4; font-style: italic; color: var(--muted); text-wrap: pretty; }
+  .end { margin: 1.5rem 0 0; text-align: right; font-size: 1.6rem; line-height: 1; }
+
+  .pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: var(--measure);
+    margin: 3.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .pager a { display: flex; flex-direction: column; gap: 0.4rem; text-decoration: none; }
+  .pager .mono { color: var(--muted); }
+  .pager .newer { text-align: right; grid-column: 2; }
+  .pager .t { font-size: 1.6rem; }
+  .pager a:hover .t { color: var(--red); }
+</style>

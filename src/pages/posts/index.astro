@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts } from '../../lib/posts';
+
+const posts = await getPosts();
+---
+
+<Base title="Lemmata" description="Writing by Denis Borovikov.">
+  <header class="intro">
+    <p class="mono kicker">Writing</p>
+    <h1 class="display">Lemmata</h1>
+    <p class="mono count">∴ {posts.length} proofs · <a href="/rss.xml">RSS</a></p>
+  </header>
+  <PostList posts={posts} total={posts.length} />
+</Base>
+
+<style>
+  .intro { padding-block: clamp(1.5rem, 5vw, 3rem) 2rem; margin-bottom: 2rem; border-bottom: 1px solid var(--rule); }
+  .kicker { margin: 0; color: var(--red); }
+  h1 { margin: 0.5rem 0 0; font-size: clamp(2.75rem, 6vw, 4rem); }
+  .count { margin: 0.9rem 0 0; color: var(--muted); }
+</style>

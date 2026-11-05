@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Not found">
+  <section>
+    <p class="mono kicker">Counterexample · 404</p>
+    <h1 class="display">This page doesn’t exist.<span class="qed" aria-hidden="true"></span></h1>
+    <p>It may have moved when the site was rebuilt. Try the <a href="/posts/">lemmata</a> or go <a href="/">home</a>.</p>
+  </section>
+</Base>
+
+<style>
+  section { padding-block: clamp(2rem, 8vw, 5rem); max-width: var(--measure); }
+  .kicker { margin: 0; color: var(--red); }
+  h1 { margin: 0.75rem 0 1rem; font-size: clamp(2.75rem, 6vw, 4rem); }
+  p:last-child { color: var(--muted); }
+</style>

@@ -1,0 +1,47 @@
+---
+import Glyph from './Glyph.astro';
+import { readingTime, type Post } from '../lib/posts';
+
+interface Props {
+  posts: Post[];
+  /** Total number of posts; lemmas are numbered oldest-first. */
+  total: number;
+}
+
+const { posts, total } = Astro.props;
+---
+
+<ol class="post-list">
+  {
+    posts.map((post, i) => (
+      <li>
+        <a href={`/posts/${post.id}/`}>
+          <Glyph n={total - i} />
+          <span>
+            <span class="mono meta">
+              Lemma {total - i} · {post.data.date.getUTCFullYear()} · {readingTime(post.body)} min
+            </span>
+            <span class="title display">{post.data.title}</span>
+            {post.data.summary && <span class="summary">{post.data.summary}</span>}
+          </span>
+        </a>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .post-list { list-style: none; margin: 0; padding: 0; max-width: 40rem; }
+  li + li { margin-top: 1.4rem; }
+  a {
+    display: grid;
+    grid-template-columns: 1.05rem 1fr;
+    gap: 0 1rem;
+    text-decoration: none;
+  }
+  a :global(.glyph) { margin-top: 0.15rem; }
+  .meta { display: block; color: var(--muted); }
+  .title { display: block; margin-top: 0.3rem; font-size: 1.75rem; line-height: 1.05; }
+  a:hover .title { color: var(--red); }
+  .summary { display: block; margin-top: 0.3rem; font-style: italic; color: var(--muted); font-size: 1.05rem; line-height: 1.45; text-wrap: pretty; }
+</style>

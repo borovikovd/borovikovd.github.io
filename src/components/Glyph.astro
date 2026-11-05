@@ -1,0 +1,20 @@
+---
+// Byrne's three figures, cycled per lemma: square, circle, triangle.
+interface Props {
+  n: number;
+}
+const kind = Astro.props.n % 3;
+---
+
+<svg class="glyph" viewBox="0 0 20 20" aria-hidden="true">
+  {kind === 1 && <rect x="2" y="2" width="16" height="16" class="y" />}
+  {kind === 2 && <circle cx="10" cy="10" r="8.5" class="b" />}
+  {kind === 0 && <polygon points="10,1 19,18 1,18" class="r" />}
+</svg>
+
+<style>
+  .glyph { display: block; width: 1.05rem; height: 1.05rem; }
+  .y { fill: var(--yellow); }
+  .b { fill: var(--blue); }
+  .r { fill: var(--red); }
+</style>

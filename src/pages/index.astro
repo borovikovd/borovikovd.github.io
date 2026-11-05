@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import Disk from '../components/Disk.astro';
+import PostList from '../components/PostList.astro';
+import { LINKS } from '../consts';
+import { getPosts } from '../lib/posts';
+
+const posts = await getPosts();
+const recent = posts.slice(0, 5);
+---
+
+<Base>
+  <div class="home">
+    <section class="hero">
+      <figure class="figure">
+        <div class="disk-wrap"><Disk /></div>
+        <figcaption>
+          <span class="mono">Poincaré · (2,3,7)</span>
+          Every triangle congruent. Infinitely many. None of them escape.
+        </figcaption>
+      </figure>
+
+      <p class="kicker mono">Proposition I · Staff Engineer</p>
+      <h1 class="display">Vibes don’t <em>scale.</em><br />I work on what does.<span class="qed" aria-hidden="true"></span></h1>
+      <p class="lede">I’m Denis. I research how to build software with AI that’s secure, robust and reliable at scale.</p>
+      <ul class="links mono">
+        {LINKS.map((l) => <li><a href={l.href} rel="me">{l.label}</a></li>)}
+        <li><a href="/rss.xml">RSS</a></li>
+      </ul>
+    </section>
+
+    <section class="writing" aria-labelledby="lemmata">
+      <h2 class="section mono" id="lemmata">
+        <span>Lemmata</span>
+        <span class="count">∴ {posts.length} proofs</span>
+      </h2>
+      <PostList posts={recent} total={posts.length} />
+      {posts.length > recent.length && <p class="mono more"><a href="/posts/">All lemmata →</a></p>}
+    </section>
+  </div>
+</Base>
+
+<style>
+  .home {
+    display: grid;
+    gap: 3rem 4.5rem;
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  }
+  @media (min-width: 60rem) {
+    .home { grid-template-columns: 1.1fr 1fr; align-items: start; }
+  }
+
+  .figure { display: flex; align-items: flex-end; gap: 1.25rem; margin: 0; }
+  .disk-wrap { width: 150px; flex: none; }
+  figcaption {
+    max-width: 14rem;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--muted);
+  }
+  figcaption .mono { display: block; margin-bottom: 0.3rem; font-style: normal; font-weight: 500; color: var(--ink); }
+
+  .kicker { margin: 1.9rem 0 0; color: var(--red); }
+  h1 { margin: 0.6rem 0 0; font-size: clamp(2.6rem, 5vw, 4rem); }
+  h1 em { color: var(--blue); }
+  .lede { max-width: 31rem; margin: 1.1rem 0 0; color: var(--muted); }
+  .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 1.1rem 0 0; padding: 0; list-style: none; }
+
+  .section {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .count { color: var(--muted); }
+  .more { margin: 1.75rem 0 0; }
+</style>
